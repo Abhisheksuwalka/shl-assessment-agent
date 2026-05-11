@@ -1,0 +1,13 @@
+# Render deployment configuration
+# See: https://render.com/docs/deploy-an-image
+
+services:
+  - type: web
+    name: shl-assessment-agent
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false  # Set manually in Render dashboard
+    healthCheckPath: /health
+    plan: free
